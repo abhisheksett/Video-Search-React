@@ -1,0 +1,28 @@
+
+-- yarn --
+
+* yarn tree structure - Makes single tree
+
+* yarn interactive-upgrade: allows all the installed packages version match with a gui
+
+
+-- Tooling --
+
+* npm install -g standard (global linter)
+
+* semi-standard can be used which enforces to use semicolon
+
+
+-- Atom --
+
+* check atom babel package
+
+
+-- React --
+
+* return statement with braces, like (), allows multiple line return statement
+
+* React props are read-only. It can only read from parent, but can't modify it
+
+* Manually created components must be upper-cased. If its uppercased, react understands its created
+manually, otherwise it'll put the element in DOM as it is
