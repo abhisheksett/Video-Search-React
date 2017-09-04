@@ -28,3 +28,14 @@
 manually, otherwise it'll put the element in DOM as it is
 
 * To comment inside jsx, put js block and comment inside. Like {/* comment goes here */}
+
+* Using key is important in iterator inside jsx
+
+* propType shape is used to define an object. We should mention inside what are the keys available
+and those should be defined explicitly. But propType object just checks for generic object. It doesn't
+check whats available inside
+
+* setState is required to update the state. If a state value is changed without setState, by directly
+assigning value to it, the it won't re-render the DOM. There is watch associated with setState which
+monitors state change and renders DOM. If setState is not used, the forceUpdate() function can be
+used to re-render DOM forcibly 
