@@ -26,3 +26,5 @@
 
 * Manually created components must be upper-cased. If its uppercased, react understands its created
 manually, otherwise it'll put the element in DOM as it is
+
+* To comment inside jsx, put js block and comment inside. Like {/* comment goes here */}
