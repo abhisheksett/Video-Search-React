@@ -514,7 +514,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 pre {
@@ -569,7 +569,6 @@ pre {
    display: block;
    float: right;
    width: 52%;
-   overflow-y: scroll;
  }
 
  .show-card > div > h3 {
