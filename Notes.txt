@@ -38,4 +38,7 @@ check whats available inside
 * setState is required to update the state. If a state value is changed without setState, by directly
 assigning value to it, the it won't re-render the DOM. There is watch associated with setState which
 monitors state change and renders DOM. If setState is not used, the forceUpdate() function can be
-used to re-render DOM forcibly 
+used to re-render DOM forcibly
+
+* If a component it created as stateless, it doesn't need any createClass or render function. Only a
+function which returns some markup will work in same way
