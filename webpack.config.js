@@ -3,8 +3,8 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './js/ClientApp.js',
-  devtool: 'eval',
+  entry: './js/ClientApp.jsx',
+  devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, './public'),
     filename: 'bundle.js'
@@ -14,7 +14,7 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.jsx', '.json', '.css']
   },
   stats: {
     color: true,
@@ -23,18 +23,13 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'eslint-loader'
-      },
+      
       {
         test: /\.json$/,
         loader: 'json-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },

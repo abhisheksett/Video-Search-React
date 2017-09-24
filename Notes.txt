@@ -12,6 +12,9 @@
 
 * semi-standard can be used which enforces to use semicolon
 
+* Use of Prettier. Example:
+prettier --single-quote --print-width=120 --parser=flow --tab-width=2 --write "js/**/*.{js,jsx}" 
+
 
 -- Atom --
 
