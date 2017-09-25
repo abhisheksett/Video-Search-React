@@ -1,33 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Landing from './Landing';
-import Search from './Search';
-import Details from './Details';
-import preload from '../data.json';
-// import '../public/normalize.css';
-import '../public/style.css';
+import App from './App';
 
-const App = () => {
+const renderApp = () => {
+  render(<App />, document.getElementById('app'));
+}
 
-  return (
-    <BrowserRouter>
-      <div className="app">
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/search" component={props => <Search shows={preload.shows} {...props} />} />
-          <Route
-            path="/details/:id"
-            component={ (props) => {
-              const shows = preload.shows.filter(show => props.params.id === show.imdbID);
-              return <Details {...props} show={shows[0]} />;
-            }}
-          />
-        </Switch>
+renderApp();
 
-      </div>
-    </BrowserRouter>
-  );
-};
-
-render(<App />, document.getElementById('app'));
+if(module.hot) {
+  module.hot.accept('./App', () => {
+    renderApp();
+  })
+}
