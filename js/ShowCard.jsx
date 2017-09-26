@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -17,16 +19,13 @@ const Image = styled.img`
   margin-right: 10px;
 `;
 
-const { string } = React.PropTypes;
-
-const ShowCard = (props) => {
-  ShowCard.propTypes = {
-    poster: string.isRequired,
-    title: string.isRequired,
-    year: string.isRequired,
-    description: string.isRequired,
-    imdbID: string.isRequired
-  };
+const ShowCard = (props: {
+  poster: string,
+  title: string,
+  year: string,
+  description: string,
+  imdbID: string
+}) => {
 
   const { poster, title, year, description, imdbID } = props;
 

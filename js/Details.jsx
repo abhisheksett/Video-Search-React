@@ -44,7 +44,7 @@ const Details = React.createClass({
           <h1>{title}</h1>
           <h2>({year})</h2>
           {rating}
-          <img src={`/public/img/posters/${poster}`} />
+          <img src={`/public/img/posters/${poster}`} alt='poster'/>
           <p>{description}</p>
         </section>
         <div>

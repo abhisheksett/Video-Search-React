@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -14,13 +16,13 @@ const App = () =>  (
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/search" component={props => <Search shows={preload.shows} {...props} />} />
-          {/* <Route
+          <Route
             path="/details/:id"
             component={ (props) => {
-              const shows = preload.shows.filter(show => props.params.id === show.imdbID);
+              const shows = preload.shows.filter(show => props.match.params.id === show.imdbID);
               return <Details {...props} show={shows[0]} />;
             }}
-          /> */}
+          />
         </Switch>
 
       </div>
