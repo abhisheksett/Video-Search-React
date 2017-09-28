@@ -1,7 +1,16 @@
-import React from 'react';
+// @flow
+
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Header extends React.Component {
+class Header extends Component {
+
+  props: {
+    handleSearchTermChange?: Function,
+    showSearch?: boolean,
+    searchTerm?: string
+  };
+
   render() {
     let utilSpace;
     if (this.props.showSearch) {
@@ -33,11 +42,10 @@ class Header extends React.Component {
   }
 }
 
-const { func, bool, string } = React.PropTypes;
-Header.propTypes = {
-  handleSearchTermChange: func,
-  showSearch: bool,
-  searchTerm: string
+Header.defaultProps = {
+  showSearch: false,
+  handleSearchTermChange: function noop () {},
+  searchTerm: ''
 };
 
 export default Header;

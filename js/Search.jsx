@@ -4,12 +4,18 @@ import React, { Component } from 'react';
 import ShowCard from './ShowCard';
 import Header from './Header';
 
-const { string, arrayOf, shape } = React.PropTypes;
+// @TODO: Move this to typed.js to make it available globally
+
 
 class Search extends Component {
 
   state =  {
     searchTerm: ''
+  };
+
+  props: {
+    shows: Array<Show>,
+    searchTerm: string
   };
 
   handleSearchTermChange(event: SyntheticKeyboardEvent & { target: HTMLInputElement}) {
@@ -31,15 +37,6 @@ class Search extends Component {
       </div>
     );
   }
-}
-
-Search.propTypes = {
-  shows: arrayOf(
-    shape({
-      title: string,
-      description: string
-    })
-  ).isRequired
 }
 
 export default Search;

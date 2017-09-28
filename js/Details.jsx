@@ -1,41 +1,36 @@
-import React from 'react';
+// @flow
+
+import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './Header';
-import preload from '../data.json';
+import Spinner from './Spinner';
 
+class Details extends Component {
 
-const { shape, string } = React.PropTypes;
-const Details = React.createClass({
-  propTypes: {
-    show: shape({
-      title: string,
-      description: string,
-      year: string,
-      poster: string,
-      imdbID: string,
-      trailer: string
-    })
-  },
-  getInitialState() {
-    return {
-      omdbData: {}
-    };
-  },
+  state = {
+    apiData: { rating: '' }
+  };
+
   componentDidMount() {
-    // axios.get(`http://www.omdbapi.com/?i=${this.props.show.imdbID}&apikey=7c2f0f61`).then(response => {
-    //   this.setState({
-    //     omdbData: response.data
-    //   }).catch(error => console.error('axios error', error));
-    // });
+    axios.get(`http://localhost:3000/${this.props.show.imdbID}`)
+    .then((response: { data: { rating: string }}) => {
+      this.setState({
+        apiData: response.data
+      });
+    })
+  }
 
-  },
+  props: {
+    show: Show
+  };
+
   render() {
-    const { title, description, year, poster, imdbID, trailer } = this.props.show;
-    let rating;
-    if (this.state.omdbData.imdbRating) {
-      rating = <h3>{this.state.omdbData.imdbRating}</h3>;
+    const { title, description, year, poster, trailer } = this.props.show;
+    let ratingComponent;
+    if (this.state.apiData.rating) {
+      ratingComponent = <h3>{this.state.apiData.rating}</h3>;
     } else {
-      rating = <img src="/public/img/loading.png" alt="loading" />;
+      ratingComponent = <Spinner />;
     }
     return (
       <div className="details">
@@ -43,7 +38,7 @@ const Details = React.createClass({
         <section>
           <h1>{title}</h1>
           <h2>({year})</h2>
-          {rating}
+          {ratingComponent}
           <img src={`/public/img/posters/${poster}`} alt='poster'/>
           <p>{description}</p>
         </section>
@@ -52,11 +47,12 @@ const Details = React.createClass({
             src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;controls=0&amp;showinfo=0`}
             frameBorder="0"
             allowFullScreen
+            title={`Trailer for ${title}`}
           />
         </div>
       </div>
     );
   }
-});
+}
 
 export default Details;

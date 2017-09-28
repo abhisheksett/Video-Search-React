@@ -17,6 +17,9 @@
       "jsx": true
     }
   },
+  "rules": {
+    "react/prefer-stateless-function": "off"
+  },
   "env": {
     "es6": true,
     "browser": true,
