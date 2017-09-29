@@ -15,19 +15,19 @@ class Search extends Component {
 
   props: {
     shows: Array<Show>,
-    searchTerm: string
   };
 
-  handleSearchTermChange(event: SyntheticKeyboardEvent & { target: HTMLInputElement}) {
+  handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement}) => {
     this.setState({
       searchTerm: event.target.value
     });
   }
 
   render() {
+    console.log(this.props.searchValue)
     return (
       <div className="search">
-        <Header showSearch handleSearchTermChange={this.handleSearchTermChange} searchTerm={this.props.searchTerm} />
+        <Header showSearch handleSearchTermChange={this.handleSearchTermChange} searchTerm={this.state.searchTerm} />
         <div>
           {this.props.shows
             .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)

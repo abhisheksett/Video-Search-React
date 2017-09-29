@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   margin-bottom: 25px;
   padding-right: 10px;
   overflow: hidden;
+  color: black;
+  text-decoration: none;
 `;
 
 const Image = styled.img`
@@ -19,30 +21,34 @@ const Image = styled.img`
   margin-right: 10px;
 `;
 
-const ShowCard = (props: {
-  poster: string,
-  title: string,
-  year: string,
-  description: string,
-  imdbID: string
-}) => {
+class ShowCard extends Component {
 
-  const { poster, title, year, description, imdbID } = props;
+  shouldComponentUpdate(/* nextProps */) {
+    // Below code indicates update component only if prop year has changed
+    // return this.props.year !== nextProps.year;
 
-  return (
-    <Wrapper>
-      <Link to={`/details/${imdbID}`}>
-        <div>
-          <Image alt='' src={`/public/img/posters/${poster}`} />
+    return true;
+  }
+
+  props: Show;
+
+  render () {
+    const { poster, title, year, description, imdbID } = this.props;
+    return (
+      <Wrapper>
+        <Link to={`/details/${imdbID}`}>
           <div>
-            <h3>{title}</h3>
-            <h4>({year})</h4>
-            <p>{description}</p>
+            <Image alt='' src={`/public/img/posters/${poster}`} />
+            <div>
+              <h3>{title}</h3>
+              <h4>({year})</h4>
+              <p>{description}</p>
+            </div>
           </div>
-        </div>
-      </Link>
-    </Wrapper>
-  )
+        </Link>
+      </Wrapper>
+    )
+  }
 }
 
 export default ShowCard;
