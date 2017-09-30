@@ -119,6 +119,14 @@
             "poster": "ww.jpg",
             "imdbID": "tt0475784",
             "trailer": "eX3u0IlBBO4"
+        },
+        {
+            "title": "Band of Brothers",
+            "year": "2001",
+            "description": "The story of Easy Company of the U.S. Army 101st Airborne Division, and their mission in World War II Europe, from Operation Overlord, through V-J Day.",
+            "poster": "bob.jpg",
+            "imdbID": "tt0185906",
+            "trailer": "kyDkHvi9yeI"
         }
     ]
 }

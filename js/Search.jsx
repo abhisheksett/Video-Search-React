@@ -23,8 +23,13 @@ class Search extends Component {
     });
   }
 
+  componentDidMount = () => {
+    this.setState({
+      searchTerm: this.props.location.searchValue
+    })
+  }
+
   render() {
-    console.log(this.props.searchValue)
     return (
       <div className="search">
         <Header showSearch handleSearchTermChange={this.handleSearchTermChange} searchTerm={this.state.searchTerm} />

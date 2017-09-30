@@ -17,7 +17,10 @@ class Landing extends Component {
 
   handleEnter = (event) => {
     if (event.keyCode === 13 && this.state.searchValue) {
-      this.props.history.push("/search");
+      this.props.history.push({
+        pathname: "/search",
+        searchValue: this.state.searchValue
+      });
     }
   }
 
