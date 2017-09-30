@@ -9,6 +9,14 @@
             "trailer": "MpEdJ-mmTlY"
         },
         {
+            "title": "Band of Brothers",
+            "year": "2001",
+            "description": "The story of Easy Company of the U.S. Army 101st Airborne Division, and their mission in World War II Europe, from Operation Overlord, through V-J Day.",
+            "poster": "bob.jpg",
+            "imdbID": "tt0185906",
+            "trailer": "kyDkHvi9yeI"
+        },
+        {
             "title": "Billions",
             "year": "2016–",
             "description": "U.S. Attorney Chuck Rhoades goes after hedge fund king, Bobby \"Axe\" Axelrod in a battle between two powerful New York figures.",
@@ -31,6 +39,22 @@
             "poster": "bb.jpg",
             "imdbID": "tt0903747",
             "trailer": "XZ8daibM3AE"
+        },
+        {
+            "title": "Daredevil",
+            "year": "2015-",
+            "description": "Matt Murdock, with his other senses superhumanly enhanced, fights crime as a blind lawyer by day, and vigilante by night.",
+            "poster": "dd.jpg",
+            "imdbID": "tt3322312",
+            "trailer": "jAy6NJ_D5vU"
+        },
+        {
+            "title": "Friends",
+            "year": "1999-2004",
+            "description": "Follows the personal and professional lives of six 20 to 30-something-year-old friends living in Manhattan.",
+            "poster": "frnds.jpg",
+            "imdbID": "tt0108778",
+            "trailer": "A3SeLi7IJHo"
         },
         {
             "title": "Game of Thrones",
@@ -119,14 +143,6 @@
             "poster": "ww.jpg",
             "imdbID": "tt0475784",
             "trailer": "eX3u0IlBBO4"
-        },
-        {
-            "title": "Band of Brothers",
-            "year": "2001",
-            "description": "The story of Easy Company of the U.S. Army 101st Airborne Division, and their mission in World War II Europe, from Operation Overlord, through V-J Day.",
-            "poster": "bob.jpg",
-            "imdbID": "tt0185906",
-            "trailer": "kyDkHvi9yeI"
         }
     ]
 }
