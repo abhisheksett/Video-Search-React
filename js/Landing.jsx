@@ -1,42 +1,52 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import type { RouterHistory } from 'react-router-dom';
+import { setSearchTerm } from './actionCreators';
 
 class Landing extends Component {
 
-  state = {
-    searchValue: ''
+  props: {
+    searchTerm: string,
+    handleSearchTermChange: Function,
+    clearStateAndGoToSearch: Function,
+    history: RouterHistory
   }
 
-  handleInputChange = (event) => {
-    this.setState({
-      searchValue: event.target.value
-    })
-  }
-
-  handleEnter = (event) => {
-    if (event.keyCode === 13 && this.state.searchValue) {
-      this.props.history.push({
-        pathname: "/search",
-        searchValue: this.state.searchValue
-      });
-    }
-  }
+  goToSearch = (event) => {
+    event.preventDefault();
+    this.props.history.push('/search');
+  };
 
   render() {
     return (
       <div className="landing">
         <h1>svideo</h1>
-        <input type="text"
-          placeholder="Search"
-          onChange={this.handleInputChange}
-          onKeyUp={this.handleEnter}
-        />
-        <Link to="/search">or Browse All </Link>
+        <form onSubmit={this.goToSearch}>
+          <input type="text"
+            value={this.props.searchTerm}
+            placeholder="Search"
+            onChange={this.props.handleSearchTermChange}
+          />
+        </form>
+        <a href="" onClick={()=> this.props.clearStateAndGoToSearch(event, this.props.history)}>or Browse All </a>
       </div>
     );
   }
 }
 
-export default Landing;
+const mapStateToProps = (state) => ({ searchTerm: state.searchTerm});
+const mapDispatchToProps = (dispatch: Function) => ({
+  clearStateAndGoToSearch(event, history) {
+    event.preventDefault();
+    dispatch(setSearchTerm(''));
+    history.push('/search');
+  },
+  handleSearchTermChange(event) {
+    dispatch(setSearchTerm(event.target.value))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
