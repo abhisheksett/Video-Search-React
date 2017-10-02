@@ -7,7 +7,8 @@ export type Show = {
   poster: string,
   imdbID: string,
   trailer: string,
-  year: string
+  year: string,
+  rating: string
 };
 
 declare var module: {
